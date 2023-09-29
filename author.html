@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Web Apps Lab</title>
-    </head>
- 
+
+<head>
+    <title>Web Apps Lab</title>
+</head>
+
 <body>
     <h1>author entry Srinivas</h1>
+    <form>
+        <label for="hiddenAuthor">The hidden Author Name </label>
+        <input type="password" id="hiddenAuthor" name="author_name" value="Dickens" disabled> <br>
+
+        <label for="guessAuthor">Guess the Author </label>
+        <input type="text" id="guessAuthor" name="guessAuthor" autofocus> <br>
+
+        <input type="button" onclick="checkAuthor()" value="Check the guess">
+    </form>
+
+
+    <p id="result"> Results: <span id="goodCount">0</span>, Oops - <span id="oopsCount">0</span></p>
+
+    <script>
+        let good = 0;
+        let oops = 0;
+        function checkAuthor() {
+
+            hidden = document.getElementById("hiddenAuthor").value
+            guess = document.getElementById("guessAuthor").value
+
+            out = document.getElementById("result")
+            if (hidden == guess) {
+                good++;
+                alert('You got it right')
+                out.innerHTML = "Results: " + good + ", Oops-" + oops
+            } else {
+                oops++
+                alert('Sorry')
+                out.innerHTML = "Results: " + good + ",Oops-" + oops
+            }
+
+
+        }
+    </script>
 </body>
+
 </html>
