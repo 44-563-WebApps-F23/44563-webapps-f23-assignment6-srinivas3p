@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Tip calculation
+        </title>
+    </head>
+ 
+<body>
+
+<h1>Peeka Srinivas shows tip amounts</h1>
+    <label for="Base Amount">Enter base amount</label>
+    <input type="number" id="Base Amount"><br>
+
+    <label for="Tip Percent">Enter the tip percent</label>
+    <input type="number" id="Tip Percent"><br>
+
+    <button onclick="tips()" style="color:red; background-color: black;">Show tip</button>
+
+    <div id="Res"></div>
+
+    <script>
+        function tips() {
+    const BaseAmount = parseFloat(document.getElementById("Base Amount").value);
+    const TipPercent = parseFloat(document.getElementById("Tip Percent").value);
+    let toShow = "Tips are: ";
+    for (let i = 0; i < 5; i++) {
+        const CalcTip = BaseAmount * (iTpPercent + i * 4) / 100;
+        toShow += `${TipPercent + i * 4}% is ${CalcTip.toFixed(2)}; `;
+    }
+    document.getElementById("Res").innerHTML = toShow;
+}
+    </script>
+
+    <form>
+        <label><input type="radio" name="operation" value="sum" onclick="chooseOp()">Sum</label>
+        <label><input type="radio" name="operation" value="difference" onclick="chooseOp()">Difference</label>
+        <label><input type="radio" name="operation" value="product" onclick="chooseOp()">Product</label>
+    </form>
+    <script>
+        function chooseOp() {
+            const BaseAmount = parseFloat(document.getElementById("BaseAmount").value);
+            const TipPercent = parseFloat(document.getElementById("TipPercent").value);
+    const SlctOperation = document.querySelector('input[name="operation"]:checked').value;
+    let resultText = "";
+    switch (SlctOperation) {
+        case "sum":
+            resultText = `Sum of ${BaseAmount} and ${TipPercent} is ${BaseAmount + TipPercent}`;
+            break;
+        case "difference":
+            resultText = `Difference between ${BaseAmount} and ${TipPercent} is ${BaseAmount - TipPercent}`;
+            break;
+        case "product":
+            resultText = `Product of ${BaseAmount} and ${TipPercent} is ${BaseAmount * TipPercent}`;
+            break;
+        default:
+            resultText = "Select the type of Operation.";
+            break;
+    }
+    document.getElementById("Res").innerHTML = resultText;
+}
+    </script>
+
+</body>
+</html> 
