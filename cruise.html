@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cruise Trip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .button {
+            color: white;
+            background-color: #28a745;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #218838;
+        }
+
+        .info {
+            font-weight: bold;
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Peeka Srinivas goes on a cruise</h2>
+
+    <form>
+        <div class="form-group">
+            <label for="checkbox1">Shares Cabin</label>
+            <input type="checkbox" id="checkbox1">
+        </div>
+        <div class="form-group">
+            <label for="checkbox2">Breakfast</label>
+            <input type="checkbox" id="checkbox2">
+        </div>
+        <div class="form-group">
+            <label for="checkbox3">Pool Pass</label>
+            <input type="checkbox" id="checkbox3">
+        </div>
+        <br>
+        <button type="button" class="button" onclick="selectCruise()">Select a cruise</button>
+        <p id="results" class="info"></p>
+    </form>
+
+    <h4>Cruise Price Details:</h4>
+    <form id="updateCruiseForm">
+        <label for="daysInput">Enter the number of days:</label>
+        <input type="text" id="daysInput">
+        <br>
+        <br>
+        <label for="priceInput">Enter price:</label>
+        <input type="text" id="priceInput">
+        <br>
+        <br>
+        <input type="button" value="Update the cruise" class="button" onclick="updateCruise()">
+    </form>
+
+    <div id="cruiseInfo" class="info"></div>
+
+    <script>
+        var my_cruise = {};
+
+        function selectCruise() {
+            my_cruise = {};
+
+            var checkbox1 = document.getElementById("checkbox1").checked;
+            var checkbox2 = document.getElementById("checkbox2").checked;
+            var checkbox3 = document.getElementById("checkbox3").checked;
+
+            my_cruise.shared = checkbox1;
+            my_cruise.breakfast = checkbox2;
+            my_cruise.pool = checkbox3;
+
+            var resultsElement = document.getElementById("results");
+            resultsElement.innerHTML = "Your selection has been recorded as: " + JSON.stringify(my_cruise);
+        }
+
+        function updateCruise() {
+            var daysValue = document.getElementById("daysInput").value;
+            var priceValue = document.getElementById("priceInput").value;
+
+            my_cruise.days = daysValue;
+            my_cruise.price = priceValue;
+
+            var cruiseInfoDiv = document.getElementById("cruiseInfo");
+            cruiseInfoDiv.innerHTML = "Cruise Information:<br>Days: " + my_cruise.days + "<br>Price: $" + my_cruise.price;
+        }
+    </script>
+
+</body>
+
+</html>
