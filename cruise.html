@@ -22,9 +22,7 @@
             cursor: pointer;
         }
 
-        .button:hover {
-            background-color: #218838;
-        }
+
 
         .info {
             font-weight: bold;
@@ -68,7 +66,7 @@
         <input type="button" value="Update the cruise" class="button" onclick="updateCruise()">
     </form>
 
-    <div id="cruiseInfo" class="info"></div>
+    <p id="results" class="info"></p>
 
     <script>
         var my_cruise = {};
@@ -95,8 +93,10 @@
             my_cruise.days = daysValue;
             my_cruise.price = priceValue;
 
-            var cruiseInfoDiv = document.getElementById("cruiseInfo");
-            resultsElement.innerHTML = JSON.stringify(my_cruise);
+            var resultsElement = document.getElementById("results");
+            resultsElement.innerHTML = "Your selection has been recorded as: " + JSON.stringify(my_cruise);
+
+            
         }
     </script>
 
