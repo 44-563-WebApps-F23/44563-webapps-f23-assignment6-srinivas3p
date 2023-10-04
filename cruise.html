@@ -96,7 +96,7 @@
             my_cruise.price = priceValue;
 
             var cruiseInfoDiv = document.getElementById("cruiseInfo");
-            cruiseInfoDiv.innerHTML = "Cruise Information:<br>Days: " + my_cruise.days + "<br>Price: $" + my_cruise.price;
+            resultsElement.innerHTML = JSON.stringify(my_cruise);
         }
     </script>
 
