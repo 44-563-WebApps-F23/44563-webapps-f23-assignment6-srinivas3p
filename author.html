@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -5,7 +6,7 @@
 </head>
 
 <body>
-    <h1>author entry Srinivas</h1>
+    <h1>Author entry Srinivas</h1>
     <form>
         <label for="hiddenAuthor">The hidden Author Name </label>
         <input type="password" id="hiddenAuthor" name="author_name" value="Dickens" disabled> <br>
@@ -15,7 +16,6 @@
 
         <input type="button" onclick="checkAuthor()" value="Check the guess">
     </form>
-
 
     <p id="result"> The Result Count: Good - <span id="goodCount">0</span>, Oops - <span id="oopsCount">0</span></p>
 
@@ -31,38 +31,34 @@
             if (hidden == guess) {
                 good++;
                 alert('You got it right');
-            } else{
+            } else {
                 oops++;
+                alert('Sorry');
                 out.innerHTML = "The Result Count: Good-" + good + ", Oops-" + oops;
-                if (oops>7) {
-                    alert('Sorry, you ran out of guesses');
-                }
-                else{
-                    alert('Sorry');
-                }
             }
         }
     </script>
     <br>
-    <h3 style="font-family:Arial, Helvetica, sans-serif">City images</h3>
+    <h3 style="font-family: Arial, Helvetica, sans-serif">City images</h3>
     <div id="imageContainer">
-        <img id="city images" src="img1.jpg" alt="singapore" width="100" height="100" onclick="selectImage()">
+        <img id="cityImages" src="img1.jpg" alt="Singapore" width="100" height="100" onclick="selectImage()">
     </div>
 
     <script>
         let useImage = 1;
+
         function selectImage() {
             switch (useImage) {
                 case 1:
-                    document.getElementById("city images").src = "img1.jpg";
+                    document.getElementById("cityImages").src = "img1.jpg";
                     useImage = 2;
                     break;
                 case 2:
-                    document.getElementById("city images").src = "img2.jpg";
+                    document.getElementById("cityImages").src = "img2.jpg";
                     useImage = 3;
                     break;
                 case 3:
-                    document.getElementById("city images").src = "img3.jpg";
+                    document.getElementById("cityImages").src = "img3.jpg";
                     useImage = 1;
                     break;
             }
