@@ -58,8 +58,8 @@
         <label><input type="radio" name="operation" value="sum" onclick="chooseOp()">Sum</label>
         <label><input type="radio" name="operation" value="difference" onclick="chooseOp()">Difference</label>
         <label><input type="radio" name="operation" value="product" onclick="chooseOp()">Product</label>
+        <p id="result"></p>
     </form>
-
     <script>
         function calculateTips() {
             const BaseAmount = parseFloat(document.getElementById("BaseAmount").value);
@@ -91,7 +91,7 @@
                     resultText = "Select the type of Operation.";
                     break;
             }
-            document.getElementById("Res").innerHTML = resultText;
+            document.getElementById("result").innerHTML = resultText;
         }
     </script>
 
