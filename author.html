@@ -33,12 +33,12 @@
                 alert('You got it right');
             } else{
                 oops++;
+                out.innerHTML = "The Result Count: Good-" + good + ", Oops-" + oops;
                 if (oops>=7) {
                     alert('Sorry, you ran out of guesses');
                 }
                 else{
                     alert('Sorry');
-                    out.innerHTML = "The Result Count: Good-" + good + ", Oops-" + oops;
                 }
             }
         }
